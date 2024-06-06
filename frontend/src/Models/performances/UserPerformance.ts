@@ -1,8 +1,8 @@
+// src/Models/performances/UserPerformance.ts
 import { PerformanceData } from "./PerformanceData";
 
-// Abstraction pour USER_PERFORMANCE
-export interface UserPerformance {
-  userId: string;
+export interface Performance {
+  userId: number;
   kind: { [key: number]: string };
   data: PerformanceData[];
 }

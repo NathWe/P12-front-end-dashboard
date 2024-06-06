@@ -62,10 +62,15 @@ const Dashboard: React.FC = () => {
 
         const performanceData = await api.getUserPerformance(id);
         if (performanceData) {
+          const kind: { [key: number]: string } = {};
+          for (const [key, value] of Object.entries(performanceData.kind)) {
+            kind[parseInt(key)] = value as string;
+          }
+
           setUserPerformance({
-            userId: parseInt(id, 10), // Conversion de string à number
+            userId: parseInt(id, 10),
             data: performanceData.data,
-            kind: performanceData.kind,
+            kind,
           });
         }
       } catch (error) {

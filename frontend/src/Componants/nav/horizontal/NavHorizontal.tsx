@@ -7,7 +7,7 @@ import {
   NavList,
   NavLinkItem,
 } from "./NavHorizontal.style";
-import logo from "../../../assets/logo/Logo.png";
+import logo from "../../../assets/logo/logo.png";
 
 const NavHorizontal: React.FC = () => {
   return (

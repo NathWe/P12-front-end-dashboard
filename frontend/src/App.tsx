@@ -11,8 +11,8 @@ import Error from "./Pages/error/Error";
 import Profil from "./Pages/Profil/Profil";
 import { IApiService } from "./services/api/IApiService";
 
-const apiService: IApiService =
-  process.env.REACT_APP_USE_REAL_API === "true" ? ApiReal : ApiMock;
+const useRealApi = import.meta.env.VITE_USE_REAL_API === "true";
+const apiService: IApiService = useRealApi ? ApiReal : ApiMock;
 
 const App: React.FC = () => {
   return (

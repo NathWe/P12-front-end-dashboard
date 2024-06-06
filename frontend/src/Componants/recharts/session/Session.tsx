@@ -1,3 +1,4 @@
+// src/Componants/recharts/session/Session.tsx
 import React from "react";
 import {
   ResponsiveContainer,
@@ -9,8 +10,9 @@ import {
   Tooltip,
   Rectangle,
 } from "recharts";
+import PropTypes from "prop-types";
 
-export interface SessionData {
+interface SessionData {
   day: number;
   sessionLength: number;
 }
@@ -21,14 +23,14 @@ interface ActivitySessionProps {
 
 interface CustomTooltipProps {
   active?: boolean;
-  payload?: Array<{ value: number }>;
+  payload?: { value: number }[];
 }
 
 const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
   if (active && payload) {
     return (
       <div className="customTooltipSession">
-        <p className="tooltipDataSession">{`${payload[0].value} `}min</p>
+        <p className="tooltipDataSession">{`${payload[0].value} min`}</p>
       </div>
     );
   }
@@ -36,19 +38,13 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
 };
 
 interface CustomCursorProps {
-  points?: Array<{ x: number }>;
+  points?: { x: number }[];
 }
 
 const CustomCursor: React.FC<CustomCursorProps> = ({ points }) => {
   if (points && points.length > 1) {
     return (
-      <Rectangle
-        fill="#000000"
-        opacity={0.2}
-        x={points[1].x}
-        width={1000}
-        height={300}
-      />
+      <Rectangle fill="#000000" opacity={0.2} x={points[1].x} width={1000} height={300} />
     );
   }
   return null;
@@ -92,12 +88,7 @@ const ActivitySession: React.FC<ActivitySessionProps> = ({ userSessions }) => {
           axisLine={false}
           interval="preserveStartEnd"
         />
-        <YAxis
-          axisLine={false}
-          tickLine={false}
-          tick={false}
-          domain={["dataMin - 5", "dataMax + 5"]}
-        />
+        <YAxis axisLine={false} tickLine={false} tick={false} domain={["dataMin - 5", "dataMax + 5"]} />
         <Tooltip
           content={<CustomTooltip />}
           cursor={<CustomCursor />}
@@ -127,8 +118,7 @@ const ActivitySession: React.FC<ActivitySessionProps> = ({ userSessions }) => {
           fill="#FFFFFF"
           style={{ fontWeight: 500, opacity: 0.5 }}
         >
-          {" "}
-          Durée moyenne des{" "}
+          Durée moyenne des
         </text>
         <text
           className="graphTitle"
@@ -139,12 +129,20 @@ const ActivitySession: React.FC<ActivitySessionProps> = ({ userSessions }) => {
           fill="#FFFFFF"
           style={{ fontWeight: 500, opacity: 0.5 }}
         >
-          {" "}
           sessions
         </text>
       </LineChart>
     </ResponsiveContainer>
   );
+};
+
+ActivitySession.propTypes = {
+  userSessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number.isRequired,
+      sessionLength: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
 };
 
 export default ActivitySession;

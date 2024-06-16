@@ -1,4 +1,3 @@
-// src/Componants/recharts/radars/RadarChart.tsx
 import React from "react";
 import {
   Radar,
@@ -35,7 +34,7 @@ function perFormence(kind: number): string {
   }
 }
 
-const ActivityRadarChart: React.FC<ActivityRadarChartProps> = ({ data, kind }) => {
+const ActivityRadarChart: React.FC<ActivityRadarChartProps> = ({ data }) => {
   const transformedData = data.map((item) => ({
     ...item,
     kind: perFormence(item.kind),

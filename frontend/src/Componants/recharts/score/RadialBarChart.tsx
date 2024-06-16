@@ -12,7 +12,9 @@ interface ActivityRadialBarChartProps {
   score: number;
 }
 
-const ActivityRadialBarChart: React.FC<ActivityRadialBarChartProps> = ({ score }) => {
+const ActivityRadialBarChart: React.FC<ActivityRadialBarChartProps> = ({
+  score,
+}) => {
   const data = [
     {
       uv: score * 100,
@@ -33,8 +35,19 @@ const ActivityRadialBarChart: React.FC<ActivityRadialBarChartProps> = ({ score }
         endAngle={450}
       >
         <circle cx="50%" cy="50%" fill="white" r="70" />
-        <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={1} tick={false} />
-        <RadialBar background dataKey="uv" angleAxisId={1} fill="var(--red)" cornerRadius={10} />
+        <PolarAngleAxis
+          type="number"
+          domain={[0, 100]}
+          angleAxisId={1}
+          tick={false}
+        />
+        <RadialBar
+          background
+          dataKey="uv"
+          angleAxisId={1}
+          fill="var(--red)"
+          cornerRadius={10}
+        />
         <text
           fontWeight="700"
           fontSize={26}

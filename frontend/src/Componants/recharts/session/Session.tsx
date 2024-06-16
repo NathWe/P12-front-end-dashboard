@@ -1,4 +1,3 @@
-// src/Componants/recharts/session/Session.tsx
 import React from "react";
 import {
   ResponsiveContainer,
@@ -44,7 +43,13 @@ interface CustomCursorProps {
 const CustomCursor: React.FC<CustomCursorProps> = ({ points }) => {
   if (points && points.length > 1) {
     return (
-      <Rectangle fill="#000000" opacity={0.2} x={points[1].x} width={1000} height={300} />
+      <Rectangle
+        fill="#000000"
+        opacity={0.2}
+        x={points[1].x}
+        width={1000}
+        height={300}
+      />
     );
   }
   return null;
@@ -53,7 +58,7 @@ const CustomCursor: React.FC<CustomCursorProps> = ({ points }) => {
 function daySemaine(day: number): string {
   switch (day) {
     case 1:
-      return "L";
+      return "  L";
     case 2:
       return "M";
     case 3:
@@ -65,7 +70,7 @@ function daySemaine(day: number): string {
     case 6:
       return "S";
     case 7:
-      return "D";
+      return "D  ";
     default:
       throw new Error("Numéro du jour incorrect");
   }
@@ -77,18 +82,24 @@ const ActivitySession: React.FC<ActivitySessionProps> = ({ userSessions }) => {
       <LineChart
         style={{ backgroundColor: "#FF0000", borderRadius: "5px" }}
         data={userSessions}
-        margin={{ top: 50, right: -2, left: -60, bottom: 10 }}
+        margin={{ top: 50, right: -5, left: -60, bottom: 10 }}
       >
         <CartesianGrid vertical={false} horizontal={false} />
         <XAxis
           dataKey="day"
           tickFormatter={daySemaine}
+          tick={{ fill: "#FFFFFF" }}
           tickLine={false}
           tickMargin={10}
           axisLine={false}
           interval="preserveStartEnd"
         />
-        <YAxis axisLine={false} tickLine={false} tick={false} domain={["dataMin - 5", "dataMax + 5"]} />
+        <YAxis
+          axisLine={false}
+          tickLine={false}
+          tick={false}
+          domain={["dataMin - 5", "dataMax + 5"]}
+        />
         <Tooltip
           content={<CustomTooltip />}
           cursor={<CustomCursor />}

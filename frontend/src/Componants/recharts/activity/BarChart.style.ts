@@ -10,6 +10,9 @@ export const TooltipContainer = styled.div`
   height: 70px;
   text-align: center;
   line-height: 1.5;
+  line-height: 24px;
+  font-size: 7px;
+  padding: 10px; /* Ajout de padding pour un peu d'espace autour du texte */
 `;
 
 export const GraphTitle = styled.text`

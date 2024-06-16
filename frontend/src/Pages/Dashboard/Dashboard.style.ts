@@ -4,6 +4,18 @@ const PageProfil = styled.div`
   width: 86%;
   margin-top: -830px;
   margin-left: 200px;
+
+  @media screen and (max-width: 1300px) {
+    margin-left: 160px;
+    margin-top: -858px;
+    width: 66%;
+  }
+
+  @media screen and (max-width: 780px) {
+    margin-left: 125px;
+    margin-top: -858px;
+    width: 70%;
+  }
 `;
 
 const Bonjour = styled.div`
@@ -11,10 +23,30 @@ const Bonjour = styled.div`
     font-size: 48px;
     margin-bottom: 12px;
     margin-top: 0px;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 40px;
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 780px) {
+      font-size: 20px;
+      margin-top: 10px;
+    }
   }
+
   p {
     font-size: 18px;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 780px) {
+      font-size: 12px;
+    }
   }
+
   span {
     color: #ff0000;
   }
@@ -22,10 +54,19 @@ const Bonjour = styled.div`
 
 const Graphiques = styled.div`
   display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 1300px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 const HorizonGauche = styled.section`
   width: 70%;
+
+  @media screen and (max-width: 1300px) {
+    width: 100%;
+  }
 `;
 
 const Activity = styled.div`
@@ -48,6 +89,11 @@ const Sessions = styled.div`
   height: 263px;
   border-radius: 5px;
   background-color: #fbfbfb;
+
+  @media screen and (max-width: 1300px) {
+    width: 31%;
+    height: 170px;
+  }
 `;
 
 const Performance = styled.div`
@@ -55,6 +101,11 @@ const Performance = styled.div`
   height: 263px;
   border-radius: 5px;
   background-color: #fbfbfb;
+
+  @media screen and (max-width: 1300px) {
+    width: 31%;
+    height: 170px;
+  }
 `;
 
 const Score = styled.div`
@@ -62,6 +113,11 @@ const Score = styled.div`
   height: 263px;
   border-radius: 5px;
   background-color: #fbfbfb;
+
+  @media screen and (max-width: 1300px) {
+    width: 31%;
+    height: 170px;
+  }
 `;
 
 const IconDroite = styled.section`
@@ -72,6 +128,14 @@ const IconDroite = styled.section`
   margin-left: 40px;
   width: 30%;
   height: 630px;
+
+  @media screen and (max-width: 1300px) {
+    margin-left: 0;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -87,105 +151,28 @@ const InfoContainer = styled.div`
     width: 80px;
     height: 80px;
     margin-left: 50px;
+
+    @media screen and (max-width: 1300px) {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      margin-top: 13px;
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    flex-direction: column;
+    height: auto;
   }
 `;
 
 const Infos = styled.div`
   margin-left: 24px;
-`;
 
-const MediaQueries = styled.div`
-  @media screen and (min-width: 780px) and (max-width: 1300px) {
-    ${Bonjour} h1 {
-      font-size: 40px;
-      margin-top: 20px;
-    }
-    ${Bonjour} p {
-      font-size: 16px;
-    }
-    ${PageProfil} {
-      margin-left: 160px;
-      margin-top: -858px;
-      width: 66%;
-    }
-    ${Sessions}, ${Performance}, ${Score} {
-      width: 31%;
-      height: 170px;
-    }
-    ${IconDroite} {
-      width: 100%;
-      flex-direction: row;
-      justify-content: unset;
-      margin-left: 0;
-    }
-    ${Graphiques} {
-      flex-direction: column;
-    }
-    ${InfoContainer} {
-      flex-direction: column;
-      height: 111px;
-    }
-    ${InfoContainer} img {
-      width: 50px;
-      height: 50px;
-      margin-right: 50px;
-      margin-left: 50px;
-      margin-top: 13px;
-    }
-    ${Infos} {
-      margin: auto;
-      font-size: 12px;
-    }
-    ${HorizonGauche} {
-      width: 100%;
-    }
-  }
-
-  @media screen and (min-width: 412px) and (max-width: 780px) {
-    ${Bonjour} h1 {
-      font-size: 20px;
-      margin-top: 10px;
-    }
-    ${Bonjour} p {
-      font-size: 12px;
-    }
-    ${PageProfil} {
-      margin-left: 125px;
-      margin-top: -858px;
-      width: 70%;
-    }
-    ${Sessions}, ${Performance}, ${Score} {
-      width: 31%;
-      height: 170px;
-    }
-    ${IconDroite} {
-      width: 25%;
-      flex-direction: row;
-      justify-content: unset;
-      margin-left: 0;
-    }
-    ${Graphiques} {
-      flex-direction: column;
-      font-size: 10px;
-    }
-    ${InfoContainer} {
-      flex-direction: column;
-      height: 111px;
-    }
-    ${InfoContainer} img {
-      width: 50px;
-      height: 50px;
-      margin-right: 50px;
-      margin-left: 50px;
-      margin-top: 13px;
-    }
-    ${Infos} {
-      margin: auto;
-      font-size: 10px;
-    }
-    ${HorizonGauche} {
-      width: 100%;
-    }
+  @media screen and (max-width: 1300px) {
+    margin: auto;
+    text-align: center;
+    font-size: 12px;
   }
 `;
 
@@ -202,5 +189,4 @@ export {
   IconDroite,
   InfoContainer,
   Infos,
-  MediaQueries,
 };

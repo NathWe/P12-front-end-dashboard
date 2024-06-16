@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { ProfileLink, ProfilContainer, Title } from "./Profil.style";
 import karl from "../../assets/images/karl.png";
 import cecilia from "../../assets/images/cecilia.png";
 
@@ -10,14 +9,23 @@ import cecilia from "../../assets/images/cecilia.png";
  */
 const Profil = (): JSX.Element => {
   return (
-    <div>
-      <Link to="/user/12" onClick={() => console.log("Navigating to user 12")}>
+    <ProfilContainer>
+      <Title>Cliquez sur le profil de votre choix</Title>
+      <ProfileLink
+        to="/user/12"
+        onClick={() => console.log("Navigating to user 12")}
+      >
         <img src={karl} alt="Karl's profile" />
-      </Link>
-      <Link to="/user/18" onClick={() => console.log("Navigating to user 18")}>
+        <span>Profil de Karl</span>
+      </ProfileLink>
+      <ProfileLink
+        to="/user/18"
+        onClick={() => console.log("Navigating to user 18")}
+      >
         <img src={cecilia} alt="Cecilia's profile" />
-      </Link>
-    </div>
+        <span>Profil de Cécilia</span>
+      </ProfileLink>
+    </ProfilContainer>
   );
 };
 

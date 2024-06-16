@@ -1,4 +1,3 @@
-// src/Pages/Dashboard/Dashboard.tsx
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useApi } from "../../contexts/ApiContext";
@@ -15,7 +14,7 @@ import { UserActivity } from "../../Models/user/UserActivity";
 import { UserAverageSessions } from "../../Models/user/UserAverageSessions";
 import { AverageSession } from "../../Models/activity/AverageSession";
 import { UserMainData } from "../../Models/user/UserMainData";
-import { Performance } from "../../Models/performances/UserPerformance";
+import { UserPerformance } from "../../Models/performances/UserPerformance";
 
 import {
   PageProfil,
@@ -30,7 +29,6 @@ import {
   IconDroite,
   InfoContainer,
   Infos,
-  MediaQueries,
 } from "./Dashboard.style";
 
 const Dashboard: React.FC = () => {
@@ -42,9 +40,8 @@ const Dashboard: React.FC = () => {
   const [userActivity, setUserActivity] = useState<UserActivity | null>(null);
   const [userAverageSessions, setUserAverageSessions] =
     useState<UserAverageSessions | null>(null);
-  const [userPerformance, setUserPerformance] = useState<Performance | null>(
-    null
-  );
+  const [userPerformance, setUserPerformance] =
+    useState<UserPerformance | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -107,60 +104,57 @@ const Dashboard: React.FC = () => {
           <h1>Bonjour {userMain.userInfos.firstName}</h1>
           <p>Félicitations! Vous avez atteint vos objectifs hier 👏</p>
         </Bonjour>
-        <MediaQueries>
-          <Graphiques>
-            <HorizonGauche>
-              <Activity>
-                <ActivityBarChart userActivity={userActivity} />
-              </Activity>
-              <Carre>
-                <Sessions>
-                  <ActivitySession userSessions={sessions} />
-                </Sessions>
-                <PerformanceSection>
-                  <ActivityRadarChart
-                    data={userPerformance.data}
-                    kind={userPerformance.kind}
-                  />
-                </PerformanceSection>
-                <Score>
-                  <ActivityRadialBarChart score={userMain.todayScore} />
-                </Score>
-              </Carre>
-            </HorizonGauche>
-
-            <IconDroite>
-              <InfoContainer>
-                <img src={caloriesIcon} alt="Calories icon" />
-                <Infos>
-                  <h3>{userMain.keyData.caloriesCount} kCal</h3>
-                  <p>Calories</p>
-                </Infos>
-              </InfoContainer>
-              <InfoContainer>
-                <img src={proteinIcon} alt="Protein icon" />
-                <Infos>
-                  <h3>{userMain.keyData.proteinCount} g</h3>
-                  <p>Protein</p>
-                </Infos>
-              </InfoContainer>
-              <InfoContainer>
-                <img src={carbsIcon} alt="Carbs icon" />
-                <Infos>
-                  <h3>{userMain.keyData.carbohydrateCount} g</h3>
-                  <p>Carbohydrates</p>
-                </Infos>
-              </InfoContainer>
-              <InfoContainer>
-                <img src={fatIcon} alt="Fat icon" />
-                <Infos>
-                  <h3>{userMain.keyData.lipidCount} g</h3>
-                  <p>Fat</p>
-                </Infos>
-              </InfoContainer>
-            </IconDroite>
-          </Graphiques>
-        </MediaQueries>
+        <Graphiques>
+          <HorizonGauche>
+            <Activity>
+              <ActivityBarChart userActivity={userActivity} />
+            </Activity>
+            <Carre>
+              <Sessions>
+                <ActivitySession userSessions={sessions} />
+              </Sessions>
+              <PerformanceSection>
+                <ActivityRadarChart
+                  data={userPerformance.data}
+                  kind={userPerformance.kind}
+                />
+              </PerformanceSection>
+              <Score>
+                <ActivityRadialBarChart score={userMain.todayScore} />
+              </Score>
+            </Carre>
+          </HorizonGauche>
+          <IconDroite>
+            <InfoContainer>
+              <img src={caloriesIcon} alt="Calories icon" />
+              <Infos>
+                <h3>{userMain.keyData.calorieCount} kCal</h3>
+                <p>Calories</p>
+              </Infos>
+            </InfoContainer>
+            <InfoContainer>
+              <img src={proteinIcon} alt="Protein icon" />
+              <Infos>
+                <h3>{userMain.keyData.proteinCount} g</h3>
+                <p>Proteines</p>
+              </Infos>
+            </InfoContainer>
+            <InfoContainer>
+              <img src={carbsIcon} alt="Carbs icon" />
+              <Infos>
+                <h3>{userMain.keyData.carbohydrateCount} g</h3>
+                <p>Glucides</p>
+              </Infos>
+            </InfoContainer>
+            <InfoContainer>
+              <img src={fatIcon} alt="Fat icon" />
+              <Infos>
+                <h3>{userMain.keyData.lipidCount} g</h3>
+                <p>Lipides</p>
+              </Infos>
+            </InfoContainer>
+          </IconDroite>
+        </Graphiques>
       </PageProfil>
     </>
   );

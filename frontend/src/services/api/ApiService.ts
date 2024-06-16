@@ -4,7 +4,7 @@ import { IApiService } from "./IApiService";
 import { UserMainData } from "../../Models/user/UserMainData";
 import { UserActivity } from "../../Models/user/UserActivity";
 import { UserAverageSessions } from "../../Models/user/UserAverageSessions";
-import { PerformanceData } from "../../Models/performances/PerformanceData";
+import { UserPerformance } from "../../Models/performances/UserPerformance";
 
 export class ApiService implements IApiService {
   constructor(private baseUrl: string) {}
@@ -28,7 +28,7 @@ export class ApiService implements IApiService {
     return response.data;
   }
 
-  async getUserPerformance(userId: string): Promise<PerformanceData | null> {
+  async getUserPerformance(userId: string): Promise<UserPerformance | null> {
     const response = await axios.get(
       `${this.baseUrl}/user/${userId}/performance`
     );

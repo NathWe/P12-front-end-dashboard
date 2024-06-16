@@ -9,7 +9,7 @@ import { IApiService } from "./IApiService";
 import { UserMainData } from "../../Models/user/UserMainData";
 import { UserActivity } from "../../Models/user/UserActivity";
 import { UserAverageSessions } from "../../Models/user/UserAverageSessions";
-import { PerformanceData } from "../../Models/performances/PerformanceData";
+import { UserPerformance } from "../../Models/performances/UserPerformance";
 
 const ApiMocks: IApiService = {
   async getUserMainData(userId: string): Promise<UserMainData | null> {
@@ -33,7 +33,7 @@ const ApiMocks: IApiService = {
     return sessions || null;
   },
 
-  async getUserPerformance(userId: string): Promise<PerformanceData | null> {
+  async getUserPerformance(userId: string): Promise<UserPerformance | null> {
     const performance = USER_PERFORMANCE.find(
       (performance) => performance.userId.toString() === userId
     );

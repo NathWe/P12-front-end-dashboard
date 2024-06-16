@@ -1,4 +1,3 @@
-// src/Componants/recharts/activity/BarChart.tsx
 import React from "react";
 import {
   BarChart,
@@ -12,18 +11,28 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 import { UserActivity } from "../../../Models/user/UserActivity";
+import { TooltipContainer, GraphTitle } from "./BarChart.style"; // Assurez-vous d'importer les styles
 
 interface ActivityBarChartProps {
   userActivity: UserActivity;
 }
 
-const CustomTooltip: React.FC<{ active?: boolean; payload?: any[] }> = ({ active, payload }) => {
-  if (active && payload) {
+interface TooltipPayloadItem {
+  value: number;
+}
+
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: TooltipPayloadItem[];
+}
+
+const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
+  if (active && payload && payload.length) {
     return (
-      <div className="customTooltip">
+      <TooltipContainer>
         <p className="tooltipData">{`${payload[0].value} kg`}</p>
         <p className="tooltipData">{`${payload[1].value} Kcal`}</p>
-      </div>
+      </TooltipContainer>
     );
   }
   return null;
@@ -33,7 +42,9 @@ const customTickDay = (day: string): string => {
   return day.slice(8);
 };
 
-const ActivityBarChart: React.FC<ActivityBarChartProps> = ({ userActivity }) => {
+const ActivityBarChart: React.FC<ActivityBarChartProps> = ({
+  userActivity,
+}) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart
@@ -55,7 +66,7 @@ const ActivityBarChart: React.FC<ActivityBarChartProps> = ({ userActivity }) => 
           tickLine={false}
           tickFormatter={customTickDay}
         />
-        <YAxis hide />
+        <YAxis hide={true} />
         <Tooltip content={<CustomTooltip />} />
         <Legend
           verticalAlign="top"
@@ -69,20 +80,28 @@ const ActivityBarChart: React.FC<ActivityBarChartProps> = ({ userActivity }) => 
             </span>
           )}
         />
-        <Bar dataKey="kilogram" name="Poids (kg)" fill="#282D30" radius={[4, 4, 0, 0]} />
-        <Bar dataKey="calories" name="Calories brûlées (kCal)" fill="#E60000" radius={[4, 4, 0, 0]} />
-        <text
+        <Bar
+          dataKey="kilogram"
+          name="Poids (kg)"
+          fill="#282D30"
+          radius={[4, 4, 0, 0]}
+        />
+        <Bar
+          dataKey="calories"
+          name="Calories brûlées (kCal)"
+          fill="#E60000"
+          radius={[4, 4, 0, 0]}
+        />
+        <GraphTitle
           x="5%"
           y="15%"
           width={147}
           height={48}
           textAnchor="start"
           dominantBaseline="middle"
-          fill="#20253A"
-          style={{ fontWeight: 500 }}
         >
           Activité quotidienne
-        </text>
+        </GraphTitle>
       </BarChart>
     </ResponsiveContainer>
   );

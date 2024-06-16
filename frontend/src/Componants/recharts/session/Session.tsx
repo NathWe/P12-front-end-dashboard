@@ -88,7 +88,7 @@ const ActivitySession: React.FC<ActivitySessionProps> = ({ userSessions }) => {
         <XAxis
           dataKey="day"
           tickFormatter={daySemaine}
-          tick={{ fill: "#FFFFFF" }}
+          tick={{ fill: "#FFFFFF", style: { opacity: 0.5 } }}
           tickLine={false}
           tickMargin={10}
           axisLine={false}

@@ -15,6 +15,12 @@ interface ActivityRadarChartProps {
   kind: { [key: number]: string };
 }
 
+/**
+ * @function perFormence
+ * @description Converts the kind number to a string.
+ * @param {number} kind - The kind number.
+ * @returns {string} The kind string.
+ */
 function perFormence(kind: number): string {
   switch (kind) {
     case 1:
@@ -34,6 +40,14 @@ function perFormence(kind: number): string {
   }
 }
 
+/**
+ * @function ActivityRadarChart
+ * @description Radar chart component for user performance.
+ * @param {ActivityRadarChartProps} props - Props for the radar chart.
+ * @param {PerformanceData[]} props.data - The performance data.
+ * @param {{ [key: number]: string }} props.kind - The kind of performance.
+ * @returns {JSX.Element} The radar chart component.
+ */
 const ActivityRadarChart: React.FC<ActivityRadarChartProps> = ({ data }) => {
   const transformedData = data.map((item) => ({
     ...item,

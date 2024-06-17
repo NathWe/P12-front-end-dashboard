@@ -7,35 +7,23 @@ import copy from "../../../assets/images/copiryght.png";
 import { Vertical, NavIcone, StyledButton } from "./NavVertical.style";
 
 /**
- * Vertical navigation component
- *
- * @returns {JSX.Element} The vertical navigation component
+ * @function NavVertical
+ * @description Vertical navigation bar component with activity buttons.
+ * @returns {JSX.Element} The vertical navigation bar.
  */
 function NavVertical(): JSX.Element {
-  /**
-   * Meditation data management function
-   */
   const handleGetMeditationData = (): void => {
     console.log("yoga");
   };
 
-  /**
-   * Swimming data management function
-   */
   function handleGetNatationData(): void {
     console.log("natation");
   }
 
-  /**
-   * Cycling data management function
-   */
   function handleGetCyclismeData(): void {
     console.log("velo");
   }
 
-  /**
-   * Bodybuilding data management function
-   */
   function handleGetMusculationData(): void {
     console.log("altere");
   }

@@ -4,6 +4,10 @@ import App from "./App.tsx";
 import { createGlobalStyle } from "styled-components";
 import { globalStyles } from "./main.style";
 
+/**
+ * @constant {import("styled-components").GlobalStyleComponent<{}, import("styled-components").DefaultTheme>} GlobalStyle
+ * @description Global styles component.
+ */
 const GlobalStyle = createGlobalStyle`
   ${globalStyles}
 `;

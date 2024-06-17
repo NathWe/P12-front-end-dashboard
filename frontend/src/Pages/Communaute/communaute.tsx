@@ -1,5 +1,11 @@
 import React from "react";
 
+/**
+ * @function Communaute
+ * @description Community page component.
+ * @returns {JSX.Element} The community page.
+ */
+
 const communaute: React.FC = () => {
   return (
     <div>

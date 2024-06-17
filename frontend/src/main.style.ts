@@ -1,5 +1,9 @@
 import { css } from "styled-components";
 
+/**
+ * @constant {import("styled-components").FlattenSimpleInterpolation} globalStyles
+ * @description Global styles for the application.
+ */
 export const globalStyles = css`
   * {
     padding: 0;

@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ErrorContainer } from "./Error.style";
 
+/**
+ * @function Error
+ * @description Error page component.
+ * @returns {JSX.Element} The error page.
+ */
 const Error: React.FC = () => {
   return (
     <ErrorContainer>

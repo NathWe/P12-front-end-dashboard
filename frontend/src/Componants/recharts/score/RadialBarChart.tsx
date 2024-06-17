@@ -12,6 +12,13 @@ interface ActivityRadialBarChartProps {
   score: number;
 }
 
+/**
+ * @function ActivityRadialBarChart
+ * @description Radial bar chart component for user score.
+ * @param {ActivityRadialBarChartProps} props - Props for the radial bar chart.
+ * @param {number} props.score - The user's score.
+ * @returns {JSX.Element} The radial bar chart component.
+ */
 const ActivityRadialBarChart: React.FC<ActivityRadialBarChartProps> = ({
   score,
 }) => {

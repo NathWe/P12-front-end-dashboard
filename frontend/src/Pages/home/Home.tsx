@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * @function Home
+ * @description Home page component.
+ * @returns {JSX.Element} The home page.
+ */
 const Home: React.FC = () => {
   return (
     <div>

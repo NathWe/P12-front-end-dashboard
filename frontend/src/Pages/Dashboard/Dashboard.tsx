@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useApi } from "../../contexts/ApiContext";
+import { useApi } from "../../contexts/useApi";
 import ActivityBarChart from "../../Componants/recharts/activity/BarChart";
 import ActivityRadarChart from "../../Componants/recharts/radars/RadarChart";
 import ActivityRadialBarChart from "../../Componants/recharts/score/RadialBarChart";
@@ -30,6 +30,12 @@ import {
   InfoContainer,
   Infos,
 } from "./Dashboard.style";
+
+/**
+ * @function Dashboard
+ * @description User dashboard page component.
+ * @returns {JSX.Element} The dashboard page.
+ */
 
 const Dashboard: React.FC = () => {
   const { id = "" } = useParams<{ id?: string }>();

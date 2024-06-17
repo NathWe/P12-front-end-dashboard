@@ -1,7 +1,15 @@
 import { UserDataMetrics } from "./UserDataMetrics";
 import { UserInfos } from "./UserInfos";
 
-// Abstraction pour USER_MAIN_DATA
+/**
+ * @interface UserMainData
+ * @description Represents the main data of a user.
+ * @property {number} todayScore - The score of the user for today.
+ * @property {string} id - The ID of the user.
+ * @property {UserInfos} userInfos - The information of the user.
+ * @property {UserDataMetrics} keyData - The key data metrics of the user.
+ */
+
 export interface UserMainData {
   todayScore: number;
   id: string;

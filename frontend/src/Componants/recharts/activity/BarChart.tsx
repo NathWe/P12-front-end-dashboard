@@ -26,6 +26,14 @@ interface CustomTooltipProps {
   payload?: TooltipPayloadItem[];
 }
 
+/**
+ * @function CustomTooltip
+ * @description Custom tooltip component for the bar chart.
+ * @param {CustomTooltipProps} props - Props for the custom tooltip.
+ * @param {boolean} [props.active] - Whether the tooltip is active.
+ * @param {TooltipPayloadItem[]} [props.payload] - The payload data.
+ * @returns {JSX.Element | null} The custom tooltip component.
+ */
 const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -38,10 +46,23 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
   return null;
 };
 
+/**
+ * @function customTickDay
+ * @description Custom tick formatter for the day of the week.
+ * @param {string} day - The day string.
+ * @returns {string} The formatted day string.
+ */
 const customTickDay = (day: string): string => {
   return day.slice(8);
 };
 
+/**
+ * @function ActivityBarChart
+ * @description Bar chart component for user activity.
+ * @param {ActivityBarChartProps} props - Props for the bar chart.
+ * @param {UserActivity} props.userActivity - The user's activity data.
+ * @returns {JSX.Element} The bar chart component.
+ */
 const ActivityBarChart: React.FC<ActivityBarChartProps> = ({
   userActivity,
 }) => {

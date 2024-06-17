@@ -3,9 +3,9 @@ import karl from "../../assets/images/karl.png";
 import cecilia from "../../assets/images/cecilia.png";
 
 /**
- * Displays user profile images.
- *
- * @returns {JSX.Element} A JSX element representing the user profile images.
+ * @function Profil
+ * @description Profile page component.
+ * @returns {JSX.Element} The profile page.
  */
 const Profil = (): JSX.Element => {
   return (

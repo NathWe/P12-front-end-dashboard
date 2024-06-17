@@ -9,6 +9,12 @@ import {
 } from "./NavHorizontal.style";
 import logo from "../../../assets/logo/logo.png";
 
+/**
+ * @function NavHorizontal
+ * @description Navigation bar component.
+ * @returns {JSX.Element} The navigation bar.
+ */
+
 const NavHorizontal: React.FC = () => {
   return (
     <HorizonContainer>

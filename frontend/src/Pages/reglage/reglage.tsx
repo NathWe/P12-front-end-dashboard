@@ -1,5 +1,11 @@
 import React from "react";
 
+/**
+ * @function Reglage
+ * @description Settings page component.
+ * @returns {JSX.Element} The settings page.
+ */
+
 const reglage: React.FC = () => {
   return (
     <div>

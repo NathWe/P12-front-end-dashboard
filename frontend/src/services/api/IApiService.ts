@@ -4,6 +4,10 @@ import { UserActivity } from "../../Models/user/UserActivity";
 import { UserAverageSessions } from "../../Models/user/UserAverageSessions";
 import { UserPerformance } from "../../Models/performances/UserPerformance";
 
+/**
+ * @interface IApiService
+ * @description Interface for API services.
+ */
 export interface IApiService {
   getUserMainData(userId: string): Promise<UserMainData | null>;
   getUserActivity(userId: string): Promise<UserActivity | null>;

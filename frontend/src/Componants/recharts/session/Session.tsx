@@ -25,6 +25,14 @@ interface CustomTooltipProps {
   payload?: { value: number }[];
 }
 
+/**
+ * @function CustomTooltip
+ * @description Custom tooltip component for the session line chart.
+ * @param {CustomTooltipProps} props - Props for the custom tooltip.
+ * @param {boolean} [props.active] - Whether the tooltip is active.
+ * @param {{ value: number }[]} [props.payload] - The payload data.
+ * @returns {JSX.Element | null} The custom tooltip component.
+ */
 const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
   if (active && payload) {
     return (
@@ -40,6 +48,13 @@ interface CustomCursorProps {
   points?: { x: number }[];
 }
 
+/**
+ * @function CustomCursor
+ * @description Custom cursor component for the session line chart.
+ * @param {CustomCursorProps} props - Props for the custom cursor.
+ * @param {{ x: number }[]} [props.points] - The cursor points.
+ * @returns {JSX.Element | null} The custom cursor component.
+ */
 const CustomCursor: React.FC<CustomCursorProps> = ({ points }) => {
   if (points && points.length > 1) {
     return (
@@ -55,6 +70,12 @@ const CustomCursor: React.FC<CustomCursorProps> = ({ points }) => {
   return null;
 };
 
+/**
+ * @function daySemaine
+ * @description Converts the day number to a string representation.
+ * @param {number} day - The day number.
+ * @returns {string} The day string.
+ */
 function daySemaine(day: number): string {
   switch (day) {
     case 1:
@@ -76,6 +97,13 @@ function daySemaine(day: number): string {
   }
 }
 
+/**
+ * @function ActivitySession
+ * @description Line chart component for user session data.
+ * @param {ActivitySessionProps} props - Props for the line chart.
+ * @param {SessionData[]} props.userSessions - The user's session data.
+ * @returns {JSX.Element} The line chart component.
+ */
 const ActivitySession: React.FC<ActivitySessionProps> = ({ userSessions }) => {
   return (
     <ResponsiveContainer>

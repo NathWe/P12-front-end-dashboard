@@ -1,6 +1,6 @@
 // src/App.tsx
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ApiProvider } from "./contexts/ApiContext";
 import ApiMock from "./services/api/ApiMocks";
 import { ApiReal } from "./services/api/ApiReal";
@@ -20,8 +20,9 @@ const App: React.FC = () => {
       <BrowserRouter>
         <NavHorizontal />
         <Routes>
+          <Route path="/" element={<Navigate to="/user/12" />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/" element={<Profil />} />
+          <Route path="/profil" element={<Profil />} />
           <Route path="/user/:id" element={<Dashboard />} />
           <Route path="*" element={<Error />} />
         </Routes>

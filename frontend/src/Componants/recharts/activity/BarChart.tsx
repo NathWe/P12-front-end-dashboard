@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 import { UserActivity } from "../../../Models/user/UserActivity";
-import { TooltipContainer, GraphTitle } from "./BarChart.style"; // Assurez-vous d'importer les styles
+import { TooltipContainer, GraphTitle } from "./BarChart.style";
 
 interface ActivityBarChartProps {
   userActivity: UserActivity;

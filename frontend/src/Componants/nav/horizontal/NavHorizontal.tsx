@@ -19,7 +19,7 @@ const NavHorizontal: React.FC = () => {
             <NavLinkItem to="/home" className="navLink">
               <li>Accueil</li>
             </NavLinkItem>
-            <NavLinkItem to="/" className="navLink">
+            <NavLinkItem to="/profil" className="navLink">
               <li>Profil</li>
             </NavLinkItem>
             <NavLinkItem to="/reglage" className="navLink">

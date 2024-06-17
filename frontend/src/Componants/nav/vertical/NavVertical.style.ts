@@ -1,8 +1,4 @@
-import styled, { css } from "styled-components";
-
-interface StyledButtonProps {
-  hover?: boolean;
-}
+import styled from "styled-components";
 
 export const Vertical = styled.div`
   display: flex;
@@ -25,17 +21,4 @@ export const NavIcone = styled.section`
   justify-content: space-around;
   margin-top: 200px;
   margin-bottom: 164px;
-`;
-
-export const StyledButton = styled.button<StyledButtonProps>`
-  border-radius: 6px;
-  background-color: black;
-
-  ${(props) =>
-    props.hover &&
-    css`
-      background-color: red;
-      box-shadow: 0px 0px 6px 3px red;
-      border: none;
-    `}
 `;

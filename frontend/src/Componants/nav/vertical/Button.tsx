@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 /**
  * @function Button
@@ -7,27 +8,36 @@ import React from "react";
  * @param {() => void} props.launch - Function to be called when the button is clicked.
  * @return {JSX.Element} - JSX representation of a button element with an image.
  */
+const ListItem = styled.li`
+  list-style: none;
+`;
+
+const StyledButton = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+
+  img {
+    width: 64px;
+    height: 64px;
+    transition: transform 0.2s;
+  }
+`;
+
 const Button: React.FC<{
   srcImg: string;
   launch: () => void;
 }> = ({ srcImg, launch }) => {
   return (
-    <li
-      className="vn-container__bloc-nav__bloc-ul__list"
-      style={{ listStyle: "none" }}
-    >
-      <button
-        className="vn-container__bloc-nav__bloc-ul__list__button"
-        onClick={launch}
-      >
-        <img
-          src={srcImg}
-          alt="icon"
-          loading="lazy"
-          className="vn-container__bloc-nav__bloc-ul__list__button__img"
-        />
-      </button>
-    </li>
+    <ListItem>
+      <StyledButton onClick={launch}>
+        <img src={srcImg} alt="icon" loading="lazy" />
+      </StyledButton>
+    </ListItem>
   );
 };
 

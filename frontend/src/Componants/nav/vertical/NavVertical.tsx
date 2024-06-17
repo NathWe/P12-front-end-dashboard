@@ -4,7 +4,7 @@ import natation from "../../../assets/images/natation.png";
 import velo from "../../../assets/images/velo.png";
 import altere from "../../../assets/images/alteres.png";
 import copy from "../../../assets/images/copiryght.png";
-import { Vertical, NavIcone, StyledButton } from "./NavVertical.style";
+import { Vertical, NavIcone } from "./NavVertical.style";
 
 /**
  * @function NavVertical
@@ -16,45 +16,25 @@ function NavVertical(): JSX.Element {
     console.log("yoga");
   };
 
-  function handleGetNatationData(): void {
+  const handleGetNatationData = (): void => {
     console.log("natation");
-  }
+  };
 
-  function handleGetCyclismeData(): void {
+  const handleGetCyclismeData = (): void => {
     console.log("velo");
-  }
+  };
 
-  function handleGetMusculationData(): void {
+  const handleGetMusculationData = (): void => {
     console.log("altere");
-  }
+  };
 
   return (
     <Vertical>
       <NavIcone>
-        <StyledButton
-          as={Button}
-          srcImg={yoga}
-          launch={handleGetMeditationData}
-          hover
-        />
-        <StyledButton
-          as={Button}
-          srcImg={natation}
-          launch={handleGetNatationData}
-          hover
-        />
-        <StyledButton
-          as={Button}
-          srcImg={velo}
-          launch={handleGetCyclismeData}
-          hover
-        />
-        <StyledButton
-          as={Button}
-          srcImg={altere}
-          launch={handleGetMusculationData}
-          hover
-        />
+        <Button srcImg={yoga} launch={handleGetMeditationData} />
+        <Button srcImg={natation} launch={handleGetNatationData} />
+        <Button srcImg={velo} launch={handleGetCyclismeData} />
+        <Button srcImg={altere} launch={handleGetMusculationData} />
       </NavIcone>
       <img className="copy" src={copy} alt="copiryght SportSee" />
     </Vertical>

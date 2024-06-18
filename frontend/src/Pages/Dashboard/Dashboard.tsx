@@ -111,12 +111,18 @@ const Dashboard: React.FC = () => {
     })
   );
 
+  // Gestion des incohérences pour todayScore
+  const todayScore = userMain.todayScore ?? userMain.score ?? 0;
+
   return (
     <>
       <NavVertical />
       <PageProfil>
         <Bonjour>
-          <h1>Bonjour {userMain.userInfos.firstName}</h1>
+          <h1>
+            Bonjour{" "}
+            <span style={{ color: "red" }}>{userMain.userInfos.firstName}</span>
+          </h1>
           <p>Félicitations! Vous avez atteint vos objectifs hier 👏</p>
         </Bonjour>
         <Graphiques>
@@ -140,7 +146,7 @@ const Dashboard: React.FC = () => {
                 />
               </PerformanceSection>
               <Score>
-                <ActivityRadialBarChart score={userMain.todayScore} />
+                <ActivityRadialBarChart score={todayScore} />
               </Score>
             </Carre>
           </HorizonGauche>

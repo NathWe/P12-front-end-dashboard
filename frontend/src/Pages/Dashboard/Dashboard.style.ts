@@ -24,6 +24,10 @@ const Bonjour = styled.div`
     margin-bottom: 12px;
     margin-top: 0px;
 
+    span {
+      color: #ff0000; /* Afficher le prénom en rouge */
+    }
+
     @media screen and (max-width: 1300px) {
       font-size: 40px;
       margin-top: 20px;
@@ -32,6 +36,9 @@ const Bonjour = styled.div`
     @media screen and (max-width: 780px) {
       font-size: 20px;
       margin-top: 10px;
+    }
+    span {
+      color: #ff0000;
     }
   }
 

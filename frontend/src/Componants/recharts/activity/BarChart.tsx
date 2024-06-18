@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 import { UserActivity } from "../../../Models/user/UserActivity";
-import { TooltipContainer, GraphTitle } from "./BarChart.style";
+import { TooltipContainer } from "./BarChart.style";
 
 interface ActivityBarChartProps {
   userActivity: UserActivity;
@@ -53,7 +53,7 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
  * @returns {string} The formatted day string.
  */
 const customTickDay = (day: string): string => {
-  return day.slice(8);
+  return day.slice(8).replace(/^0+/, "");
 };
 
 /**
@@ -79,15 +79,35 @@ const ActivityBarChart: React.FC<ActivityBarChartProps> = ({
         barSize={7}
         barGap={6}
       >
-        <CartesianGrid strokeDasharray="2 2" vertical={false} />
+        <text
+          x={50}
+          y={50}
+          fill="#20253A"
+          textAnchor="start"
+          dominantBaseline="middle"
+          style={{ fontWeight: 500 }}
+        >
+          Activité quotidienne
+        </text>
+        <CartesianGrid
+          strokeDasharray="3 3"
+          vertical={false}
+          horizontal={true}
+          horizontalPoints={[]}
+        />
         <XAxis
           dataKey="day"
-          axisLine={false}
-          domain={["dataMin + 1", "dataMax + 1"]}
+          axisLine={{ stroke: "#E5E5E5", strokeWidth: 2 }}
           tickLine={false}
           tickFormatter={customTickDay}
         />
-        <YAxis hide={true} />
+        <YAxis
+          yAxisId="right"
+          orientation="right"
+          tickLine={false}
+          axisLine={false}
+          tick={{ fill: "#888888" }}
+        />
         <Tooltip content={<CustomTooltip />} />
         <Legend
           verticalAlign="top"
@@ -106,23 +126,15 @@ const ActivityBarChart: React.FC<ActivityBarChartProps> = ({
           name="Poids (kg)"
           fill="#282D30"
           radius={[4, 4, 0, 0]}
+          yAxisId="right"
         />
         <Bar
           dataKey="calories"
           name="Calories brûlées (kCal)"
           fill="#E60000"
           radius={[4, 4, 0, 0]}
+          yAxisId="right"
         />
-        <GraphTitle
-          x="5%"
-          y="15%"
-          width={147}
-          height={48}
-          textAnchor="start"
-          dominantBaseline="middle"
-        >
-          Activité quotidienne
-        </GraphTitle>
       </BarChart>
     </ResponsiveContainer>
   );

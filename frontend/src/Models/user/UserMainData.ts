@@ -12,3 +12,4 @@ export interface UserMainData {
 export interface UserMainDataResponse {
   data: UserMainData;
 }
+

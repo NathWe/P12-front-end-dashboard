@@ -83,7 +83,7 @@ const Dashboard: React.FC = () => {
             kind,
           });
         } else {
-          throw new Error("User performance data not found");
+          throw new Error("User performance data not found !");
         }
       } catch (error) {
         console.error("Error fetching data:", error);

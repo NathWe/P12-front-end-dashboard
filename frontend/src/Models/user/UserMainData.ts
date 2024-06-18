@@ -16,3 +16,12 @@ export interface UserMainData {
   userInfos: UserInfos;
   keyData: UserDataMetrics;
 }
+
+/**
+ * @interface UserMainDataResponse
+ * @description Represents the response containing the main data of a user.
+ * @property {UserMainData} data - The main data of the user.
+ */
+export interface UserMainDataResponse {
+  data: UserMainData;
+}

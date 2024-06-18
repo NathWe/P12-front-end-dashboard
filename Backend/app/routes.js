@@ -40,11 +40,12 @@ router.get('/user/:id/average-sessions', (req, res) => {
 
 
 router.get('/user/:id/performance', (req, res) => {
-    const userId = idx(req, _ => _.params.id)
-    const userData = getUserPerformance(Number(userId))
+    const userId = idx(req, _ => _.params.id);
+    const userData = getUserPerformance(Number(userId));
+    console.log('User Performance Data:', userData); // Ajoutez ce log
+    return handleNoUserData(res, userData);
+});
 
-    return handleNoUserData(res, userData)
-})
 
 
 module.exports = router

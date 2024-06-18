@@ -1,16 +1,17 @@
-// src/services/api/IApiService.ts
-import { UserMainData } from "../../Models/user/UserMainData";
-import { UserActivity } from "../../Models/user/UserActivity";
-import { UserAverageSessions } from "../../Models/user/UserAverageSessions";
-import { UserPerformance } from "../../Models/performances/UserPerformance";
+import { UserMainDataResponse } from "../../Models/user/UserMainData";
+import { UserActivityResponse } from "../../Models/user/UserActivity";
+import { UserAverageSessionsResponse } from "../../Models/user/UserAverageSessions";
+import { UserPerformanceResponse } from "../../Models/performances/UserPerformance";
 
 /**
  * @interface IApiService
  * @description Interface for API services.
  */
 export interface IApiService {
-  getUserMainData(userId: string): Promise<UserMainData | null>;
-  getUserActivity(userId: string): Promise<UserActivity | null>;
-  getUserAverageSessions(userId: string): Promise<UserAverageSessions | null>;
-  getUserPerformance(userId: string): Promise<UserPerformance | null>;
+  getUserMainData(userId: string): Promise<UserMainDataResponse | null>;
+  getUserActivity(userId: string): Promise<UserActivityResponse | null>;
+  getUserAverageSessions(
+    userId: string
+  ): Promise<UserAverageSessionsResponse | null>;
+  getUserPerformance(userId: string): Promise<UserPerformanceResponse | null>;
 }

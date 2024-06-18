@@ -31,12 +31,6 @@ import {
   Infos,
 } from "./Dashboard.style";
 
-/**
- * @function Dashboard
- * @description User dashboard page component.
- * @returns {JSX.Element} The dashboard page.
- */
-
 const Dashboard: React.FC = () => {
   const { id = "" } = useParams<{ id?: string }>();
   const navigate = useNavigate();
@@ -54,27 +48,42 @@ const Dashboard: React.FC = () => {
       try {
         if (!id) return;
 
-        const mainData = await api.getUserMainData(id);
-        if (mainData) setUserMain(mainData);
+        const mainDataResponse = await api.getUserMainData(id);
+        const mainData = mainDataResponse?.data;
+        if (!mainData) throw new Error("User not found");
+        console.log("Main Data:", mainData);
+        setUserMain(mainData);
 
-        const activityData = await api.getUserActivity(id);
-        if (activityData) setUserActivity(activityData);
+        const activityDataResponse = await api.getUserActivity(id);
+        const activityData = activityDataResponse?.data;
+        if (!activityData) throw new Error("User activity not found");
+        console.log("Activity Data:", activityData);
+        setUserActivity(activityData);
 
-        const averageSessionsData = await api.getUserAverageSessions(id);
-        if (averageSessionsData) setUserAverageSessions(averageSessionsData);
+        const averageSessionsDataResponse = await api.getUserAverageSessions(
+          id
+        );
+        const averageSessionsData = averageSessionsDataResponse?.data;
+        if (!averageSessionsData)
+          throw new Error("User average sessions not found");
+        console.log("Average Sessions Data:", averageSessionsData);
+        setUserAverageSessions(averageSessionsData);
 
-        const performanceData = await api.getUserPerformance(id);
-        if (performanceData) {
+        const performanceDataResponse = await api.getUserPerformance(id);
+        const performanceData = performanceDataResponse?.data;
+        console.log("Performance Data:", performanceData);
+        if (performanceData && performanceData.kind) {
           const kind: { [key: number]: string } = {};
           for (const [key, value] of Object.entries(performanceData.kind)) {
             kind[parseInt(key)] = value as string;
           }
-
           setUserPerformance({
             userId: parseInt(id, 10),
             data: performanceData.data,
             kind,
           });
+        } else {
+          throw new Error("User performance data not found");
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -113,7 +122,12 @@ const Dashboard: React.FC = () => {
         <Graphiques>
           <HorizonGauche>
             <Activity>
-              <ActivityBarChart userActivity={userActivity} />
+              <ActivityBarChart
+                userActivity={{
+                  ...userActivity,
+                  userId: userActivity.userId.toString(),
+                }}
+              />
             </Activity>
             <Carre>
               <Sessions>
